@@ -29,6 +29,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: clear dist
+        run: rm -r dist
+        working-directory: ./
+
       # Step 5: Build project
       - name: Build project
         run: npm run build
