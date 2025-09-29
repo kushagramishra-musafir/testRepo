@@ -38,6 +38,12 @@ jobs:
         run: npm run build
         working-directory: ./
 
+      - name: Upload build
+        uses: actions/upload-artifact@v3
+        with:
+        name: dist
+        path: ./dist
+
       # Step 6: Restart ngin
       - name: Restart Nginx
         run: sudo systemctl reload nginx
