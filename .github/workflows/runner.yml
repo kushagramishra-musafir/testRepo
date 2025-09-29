@@ -32,6 +32,7 @@ jobs:
       # Step 5: Build project
       - name: Build project
         run: npm run build
+        working-directory: ./
 
       # Step 6: Restart ngin
       - name: Restart Nginx
