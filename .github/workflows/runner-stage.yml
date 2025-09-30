@@ -1,0 +1,32 @@
+name: stage deploy
+
+on:
+  push:
+    branches:
+    - stage
+
+jobs: 
+  runs-on: self-hosted
+
+steps:
+
+  - name: checkout repo
+    uses: action/checkout@v3
+
+  - name: setup node js
+    uses: actions/setup-node@v3
+    with:
+      node-version: 22
+  
+  - name: install dependencies
+    run: npm i
+
+  - name: build project
+    run: npm run build
+  
+  - name: copy build files
+    run:  | 
+    sudo cp -r dist/* /home/ec2-user/testRepo/testRepoStage
+
+  - name: restart server
+    run: sudo systemctl reload nginx

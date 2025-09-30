@@ -1,0 +1,34 @@
+name : Prod react deployment
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: self-hosted
+
+  steps: 
+    
+    - name: Checkout Repo
+      uses: action/checkout@v3
+
+    - name: setup nodejs
+      uses: action/setup-node@v3 
+      with:
+        node-version: 22
+    
+    - name: install dependencies
+      run: npm i
+    
+    - name: build project
+      run: npm run build
+    
+    - name: copy build files
+      run:  |
+      sudo cp -r dist/* /home/ec2-user/testRepo/testRepoProd
+
+    - name: restart nginx
+      run: sudo systemctl reload nginx
+
+
