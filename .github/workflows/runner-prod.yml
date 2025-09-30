@@ -11,10 +11,10 @@ jobs:
   steps: 
     
     - name: Checkout Repo
-      uses: action/checkout@v3
+      uses: actions/checkout@v3
 
     - name: setup nodejs
-      uses: action/setup-node@v3 
+      uses: actions/setup-node@v3 
       with:
         node-version: 22
     
