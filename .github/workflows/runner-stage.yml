@@ -3,7 +3,7 @@ name: Prod react deployment
 on:
   push:
     branches:
-      - main
+      - stage
 
 jobs:
   build:
@@ -25,7 +25,7 @@ jobs:
 
       - name: Copy build files
         run: |
-          sudo cp -r dist/* /home/ec2-user/testRepo/testRepoProd
+          sudo cp -r dist/* /home/ec2-user/testRepo/testStageProd
 
       - name: Restart Nginx
         run: sudo systemctl reload nginx
