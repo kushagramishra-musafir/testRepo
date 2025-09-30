@@ -26,7 +26,7 @@ jobs:
     
     - name: copy build files
       run:  |
-      sudo cp -r dist/* /home/ec2-user/testRepo/testRepoProd
+        sudo cp -r dist/* /home/ec2-user/testRepo/testRepoProd
 
     - name: restart nginx
       run: sudo systemctl reload nginx
