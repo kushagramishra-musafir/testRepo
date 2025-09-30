@@ -26,7 +26,7 @@ steps:
   
   - name: copy build files
     run:  | 
-    sudo cp -r dist/* /home/ec2-user/testRepo/testRepoStage
+      sudo cp -r dist/* /home/ec2-user/testRepo/testRepoStage
 
   - name: restart server
     run: sudo systemctl reload nginx
