@@ -7,7 +7,7 @@ on:
       - main
   pull_request:
     branches:
-      - main
+      - dev
 
 # Use a self-hosted runner
 jobs:
@@ -32,14 +32,11 @@ jobs:
       # Step 5: Build project
       - name: Build project
         run: npm run build
-        working-directory: ./
 
-      - name: Upload build
-        uses: actions/upload-artifact@v3
-        with:
-          name: dist
-          path: ./dist
+      - name: copy build
+        run: |
+        sudo cp dist/* /home/ec2-user/testRepo/dist
 
-      # Step 6: Restart ngin
+      # Step 6: Restart nginx
       - name: Restart Nginx
         run: sudo systemctl reload nginx
