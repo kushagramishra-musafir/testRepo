@@ -1,4 +1,4 @@
-name: Prod react deployment
+name: stage react deployment
 
 on:
   push:
