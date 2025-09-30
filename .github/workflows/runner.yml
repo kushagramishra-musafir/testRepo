@@ -35,7 +35,7 @@ jobs:
 
       - name: copy build
         run: |
-        sudo cp dist/* /home/ec2-user/testRepo/dist
+        sudo cp dist/* /home/ec2-user/testRepo/testRepoDev/
 
       # Step 6: Restart nginx
       - name: Restart Nginx
